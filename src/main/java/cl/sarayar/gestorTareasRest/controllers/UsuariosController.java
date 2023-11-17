@@ -25,9 +25,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @RestController
 @RequestMapping("/usuarios")
 public class UsuariosController {
+	UsuariosService usService;
 
 	@Autowired
-	UsuariosService usService;
+	public UsuariosController(UsuariosService usService) {
+		this.usService = usService;
+	}
 	@Autowired
 	JwtUtils jwtUtils;
 
