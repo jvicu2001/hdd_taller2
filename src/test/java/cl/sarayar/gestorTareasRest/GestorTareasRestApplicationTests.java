@@ -12,14 +12,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -47,6 +46,11 @@ class GestorTareasRestApplicationTests {
 
 	@Test
 	void contextLoads() {
+	}
+
+	@Test
+	void testMainNoContext() {
+		assertThrows(RuntimeException.class, () -> GestorTareasRestApplication.main(new String[1]));
 	}
 
 	@Test
